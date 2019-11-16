@@ -7,9 +7,7 @@ import io.vertx.ext.web.Router
 import io.vertx.ext.web.RoutingContext
 
 class ApiVerticle: AbstractVerticle(){
-//    companion object {
-//        val log = loggerFor(javaClass)
-//    }
+
 
     override fun start(startFuture: Future<Void>?) {
         val router = createRouter()
@@ -19,7 +17,6 @@ class ApiVerticle: AbstractVerticle(){
             .requestHandler { router.accept(it) }
             .listen(port, { result ->
                 if (result.succeeded()) {
-//                    log.info("Listening on port $port")
                     startFuture?.complete()
                 } else {
                     startFuture?.fail(result.cause())
